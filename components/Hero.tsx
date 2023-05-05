@@ -4,6 +4,7 @@ import BackgroundCircles from "./Circles";
 import Image from "next/image";
 import Link from "next/link";
 
+
 type Props = {};
 
 export default function Hero({}: Props) {
