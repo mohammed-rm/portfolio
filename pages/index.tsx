@@ -7,6 +7,7 @@ import WorkExperience from "../components/WorkExperience";
 import Skills from "../components/Skills";
 import GoUPButton from "../components/GoUPButton";
 import Projects from "../components/Projects";
+import Contact from "../components/Contact";
 
 const Home: NextPage = () => {
     return (
@@ -39,7 +40,9 @@ const Home: NextPage = () => {
                 <Projects/>
             </section>
 
-            {/* Contact */}
+            <section id="contact" className="snap-start">
+                <Contact/>
+            </section>
         </div>
     );
 };
