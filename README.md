@@ -22,3 +22,9 @@ npm install next-sanity
 npx sanity + <command>
 ```
 
+# Sanity API
+
+```bash
+npm install next-sanity
+```
+
