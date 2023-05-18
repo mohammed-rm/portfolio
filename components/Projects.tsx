@@ -1,10 +1,14 @@
 import React from "react";
 import {motion} from "framer-motion";
+import {Project} from "../typings";
+import {urlFor} from "../sanity";
+import Image from "next/image";
 
-type Props = {};
+type Props = {
+    projects: Project[];
+};
 
-export default function Projects({}: Props) {
-    const projects = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+export default function Projects({projects}: Props) {
     return (
         <motion.div
             initial={{opacity: 0}}
@@ -18,7 +22,7 @@ export default function Projects({}: Props) {
             <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20
             scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
                 {projects.map((project, index) => (
-                    <div key={index}
+                    <div key={project._id}
                          className="flex-shrink-0 snap-center flex flex-col space-y-5
                          items-center justify-center p-20 md:p-44 w-screen h-screen">
                         <motion.img
@@ -26,7 +30,7 @@ export default function Projects({}: Props) {
                             transition={{duration: 1.2}}
                             whileInView={{opacity: 1, y: 0}}
                             viewport={{once: true}}
-                            src={`https://picsum.photos/seed/${index}/1920/1080`}
+                            src={urlFor(project?.image).url()}
                             alt="Project"
                             className="rounded-3xl object-cover w-[200px] h-[200px] md:w-[300px] md:h-[300px]"
                         />
@@ -36,13 +40,22 @@ export default function Projects({}: Props) {
                                 <span className="underline decoration-[#F7AB0A]/50">
                                     Case Study {index + 1} of {projects.length}:
                                 </span>{" "}
-                                Twitter Clone
+                                {project?.title}
                             </h4>
+                            <div className="flex items-center space-x-2 justify-center">
+                                {project?.technologies.map((technology) => (
+                                    <Image
+                                        className="h-10 w-10"
+                                        key={technology._id}
+                                        src={urlFor(technology.image).url()}
+                                        alt="Technology"
+                                        width={40}
+                                        height={40}
+                                    />
+                                ))}
+                            </div>
                             <p className="text-lg text-center md:text-left">
-                                lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                {project?.summary}
                             </p>
                         </div>
                     </div>

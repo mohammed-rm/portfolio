@@ -3,16 +3,19 @@ import {Cursor, useTypewriter} from "react-simple-typewriter";
 import BackgroundCircles from "./Circles";
 import Image from "next/image";
 import Link from "next/link";
+import {PageInfo} from "../typings";
+import {urlFor} from "../sanity";
 
 
-type Props = {};
+type Props = {
+    pageInfo: PageInfo;
+};
 
-export default function Hero({}: Props) {
+export default function Hero({pageInfo}: Props) {
     const [text, count] = useTypewriter({
-        words: ["Hello",
-            "World",
-            "And",
-            "Welcome"],
+        words: [`Hello, I'm ${pageInfo?.name}`,
+            "Welcome to my portfolio"
+        ],
         loop: true,
         delaySpeed: 2000,
     });
@@ -21,8 +24,8 @@ export default function Hero({}: Props) {
             <BackgroundCircles/>
             <Image
                 className="relative rounded-full h-32 w-32 mx-auto object-cover"
-                src="https://www.shin-sekai.fr/51780-home_default/naruto-shippuden-figurine-itachi-uchiha-wall-statue.jpg"
-                alt="Itachi Uchiha"
+                src={urlFor(pageInfo?.heroImage).url()}
+                alt="Profile Picture"
                 width={128}
                 height={128}
             >
@@ -30,7 +33,7 @@ export default function Hero({}: Props) {
             <div className="z-20">
                 <h1 className="text-5xl lg:text-6xl font-semibold px-10">
                     <p className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
-                        Software Engineer
+                        {pageInfo?.role}
                     </p>
                     <span className="mr-3">{text}</span>
                     <Cursor cursorColor="#F7AB0A"/>
