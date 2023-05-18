@@ -15,10 +15,6 @@ npm install -g @sanity/cli
 ```
 
 ```bash
-npm install next-sanity
-```
-
-```bash
 npx sanity + <command>
 ```
 
