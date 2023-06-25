@@ -30,7 +30,7 @@ const Home = ({pageInfo, experiences, skills, projects, socials}: Props) => {
         overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20
         scrollbar-thumb-[#F7AB0A]/80">
             <Head>
-                <title>Create Next App</title>
+                <title>{pageInfo?.name} - Portfolio</title>
             </Head>
 
             <Header socials={socials}/>

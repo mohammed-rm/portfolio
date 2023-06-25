@@ -35,7 +35,7 @@ export default function Contact(props: Props) {
 
             <div className="flex flex-col justify-center items-center space-y-10">
 
-                <h4 className="text-4xl font-semibold">I have got just what you need.
+                <h4 className="text-xl lg:text-4xl font-semibold ">I have got just what you need.
                     <span className="underline decoration-[#F7AB0A]/50">
                         {" "} Let&apos;s talk.
                     </span>
@@ -61,7 +61,7 @@ export default function Contact(props: Props) {
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     className="flex flex-col space-y-2 w-fit mx-auto">
-                    <div className="flex space-x-2">
+                    <div className="flex flex-col space-y-2 md:space-x-2 md:flex-row md:space-y-0">
                         <input {...register('name')} type="text" placeholder="Name" className="contact-input"/>
                         <input {...register('email')} type="email" placeholder="Email" className="contact-input"/>
                     </div>
